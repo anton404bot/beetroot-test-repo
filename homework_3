@@ -1,0 +1,34 @@
+print("TASK 1")
+name = "buddha"
+print(name[0:2] + name[-2:])
+
+word = "om"
+if len(word) <= 2:
+    print(word * 2)
+    
+voice = "a"
+if len(voice) <2:
+    print("Empty String")
+
+    
+    
+print("\nTASK 2")
+
+while True:
+    number = input("Please, enter your number: ")
+    if(number.isdigit()) and len(number) == 10:
+        print("Congratulations! Your number has been received.")
+        break
+    elif(number.isalpha()):
+        print("Please, use only numeral charachters. Try again.")
+    elif(int(number) != 10):
+        print("You have entered less or more than 10 numeral charachters. Try again.")
+
+        
+
+print("\nTASK 3")
+name = "anton"
+users_name = (input("Hi! Enter here Anton's name in upper- or downcase: "))
+if(users_name.lower()) == name:
+    print("True! It's really his name.")
+    print(users_name.lower())
