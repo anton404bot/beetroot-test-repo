@@ -20,7 +20,7 @@ while True:
         print("Congratulations! Your number has been received.")
         break
     elif(number.isalpha()):
-        print("Please, use only numeral characters. Try again.")
+        print("Please, use numeral characters. Try again.")
     elif(number.isdigit()) == False:
         print("Enter ONLY numeral characters. Try again.")
     elif(int(number) != 10):
