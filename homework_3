@@ -13,7 +13,6 @@ if len(voice) <2:
     
     
 print("\nTASK 2")
-
 while True:
     number = input("Please, enter your number: ")
     if(number.isdigit()) and len(number) == 10:
