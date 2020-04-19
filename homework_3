@@ -20,9 +20,9 @@ while True:
         print("Congratulations! Your number has been received.")
         break
     elif(number.isalpha()):
-        print("Please, use only numeral charachters. Try again.")
+        print("Please, use only numeral characters. Try again.")
     elif(int(number) != 10):
-        print("You have entered less or more than 10 numeral charachters. Try again.")
+        print("You have entered less or more than 10 numeral characters. Try again.")
 
         
 
