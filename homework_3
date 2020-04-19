@@ -22,7 +22,7 @@ while True:
     elif(number.isalpha()):
         print("Please, use numeral characters. Try again.")
     elif(number.isdigit()) == False:
-        print("Enter ONLY numeral characters. Try again.")
+        print("Please, enter ONLY numeral characters. Try again.")
     elif(int(number) != 10):
         print("You have entered less or more than 10 numeral characters. Try again.")
 
