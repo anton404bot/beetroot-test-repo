@@ -1,4 +1,5 @@
 import random
+import datetime
 
 name = (input("Привет! Давай познакомимся. Как тебя зовут? \nВведи, пожалуйста, своё имя сюда: ").capitalize())
 print('\nОчень приятно, ', name, '. Меня зовут Калькулятор. Давай посчитаем что-то.')
@@ -12,7 +13,9 @@ print("""
       Степень числа
       Остаток от деления
       Факториал
-      Революционер""")
+      Революционер
+      Сколько дней прожито
+      Дата и время смерти""")
 print("Выбрал?")
 while True:
     operation = (input("Напиши 0, чтобы завершить работу Калькулятора или напиши операцию, которую будем производить, сюда: ").lower().strip())
@@ -122,6 +125,31 @@ while True:
                 print((f'\nФакториал числа {num}').rstrip('0').rstrip('.'),(f' =  {factorial}').rstrip('0').rstrip('.'))
                 result = factorial
                 
-    elif operation not in ("случайное число", "степень числа", "сложение", "вычитание", "умножение", "деление", "целочисленное деление", "остаток от деления"):
+    elif operation == ("дата и время смерти").lower().strip():
+        from datetime import timedelta
+        min_year=datetime.now().year
+        max_year=(min_year + 111)
+        
+        start = datetime(min_year, 1, 1, 00, 00, 00)
+        years = max_year - min_year+1
+        end = start + timedelta(days=365 * years)
+        for i in range(1):
+            random_date = start + (end - start) * random.random()
+            print(random_date)
+
+            left = (f'В таком случае тебе осталось {(random_date - start)/365} years').replace("days", "лет/года").replace(",",".")
+            print(left[:-22])
+            
+    elif operation == ("сколько дней прожито").lower().strip():
+        a = input('Дата рождения(гггг-мм-дд): ')
+        a = a.split('-')
+        aa = datetime.date(int(a[0]),int(a[1]),int(a[2]))
+        bb = datetime.date.today()
+        cc = aa-bb
+        dd = str(cc)
+        print("Ты прожил",(dd.split()[0]).replace("-", ""),"дней.")
+        
+    elif operation not in ("Дата и время смерти","случайное число", "степень числа", "сложение", "вычитание", "умножение", "деление", "целочисленное деление", "остаток от деления"):
         print("\nТаких операций я не знаю :(")
         
+    
