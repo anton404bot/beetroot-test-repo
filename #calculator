@@ -1,9 +1,7 @@
-#calculator
-
 import random
 
 name = (input("Привет! Давай познакомимся. Как тебя зовут? \nВведи, пожалуйста, своё имя сюда: ").capitalize())
-print('Очень приятно, ', name, '. Меня зовут Калькулятор. Давай посчитаем что-то.')
+print('\nОчень приятно, ', name, '. Меня зовут Калькулятор. Давай посчитаем что-то.')
 print("""
       Для начала тебе следует выбрать одну из следующих операций:
       Сложение
@@ -24,67 +22,82 @@ while True:
     if operation in ("сложение", "вычитание", "умножение", "деление", "целочисленное деление", "остаток от деления"):
         result = None
         while result == None:
-            num1 = (input("Введи первое число: ")) #выходит из цикла только, если int
+            num1 = (input("Введи первое число: ")) 
             num1_bez_tochki = num1.replace(".", "", 1)
             if num1_bez_tochki.isdigit() == False:
                 print("Пожалуйста, я же калькулятор и воспринимаю только цифры: ")
             else:
                 num1_part = num1.split('.')
                 if len(num1_part) == 2 and num1_part[0].isdigit() and num1_part[1].isdigit():
-                    num1 = float(num1)    #переходит дальше только, если int
-                else:                     #переходит дальше только, если int
-                    num1 = float(num1)    #переходит дальше только, если int
-                    while result == None:
-                        num2 = (input("Введи второе число: "))
-                        num2_bez_tochki = num2.replace(".", "", 1)
-                        if num2_bez_tochki.isdigit() == False:
-                            print("Пожалуйста, я же калькулятор, напиши цифрами: ") 
-                        else:
-                            num2_part = num2.split('.')
-                            if len(num2_part) == 2 and num2_part[0].isdigit() and num2_part[1].isdigit():
-                                num2 = float(num2)      #принимает и int и float
-                            else:                       #принимает и int и float
-                                num2 = float(num2)      #принимает и int и float
+                    num1 = float(num1)    #
+                else:                     
+                    num1 = float(num1)    
+                while result == None:
+                    num2 = (input("Введи второе число: "))
+                    num2_bez_tochki = num2.replace(".", "", 1)
+                    if num2_bez_tochki.isdigit() == False:
+                        print("Пожалуйста, я же калькулятор, напиши цифрами: ") 
+                    else:
+                        num2_part = num2.split('.')
+                        if len(num2_part) == 2 and num2_part[0].isdigit() and num2_part[1].isdigit():
+                            num2 = float(num2)      
+                        else:                       
+                            num2 = float(num2)      
+                        
+                        if operation == "сложение":
+                            print((f'{num1}').rstrip('0').rstrip('.'),(f'+ {num2}').rstrip('0').rstrip('.'),(f'= {num1 + num2}').rstrip('0').rstrip('.'))
+                            result = (f'{num1 + num2}') 
+                        
+                        elif operation == "вычитание":
+                            print((f'{num1}').rstrip('0').rstrip('.'),(f'- {num2}').rstrip('0').rstrip('.'),(f'= {num1 - num2}').rstrip('0').rstrip('.'))
+                            result = (f'{num1 - num2}')
                             
-                            if operation == "сложение":
-                                print((f'{num1} + {num2} = {num1 + num2}').rstrip('0').rstrip('.'))
-                                result = (f'{num1 + num2}')
+                        elif operation == "умножение":
+                            print((f'{num1}').rstrip('0').rstrip('.'),(f'* {num2}').rstrip('0').rstrip('.'),(f'= {num1 * num2}').rstrip('0').rstrip('.'))
+                            result = (f'{num1 * num2}')
                             
-                            elif operation == "вычитание":
-                                print(f'{num1} - {num2} = {num1 - num2}')
-                                result = (f'{num1 - num2}')
-                                          
-                            elif operation == "умножение":
-                                print(f'{num1} * {num2} = {num1 * num2}')
-                                result = (f'{num1 * num2}')
-                                  
-                            elif operation == "деление":
-                                if num2 != 0:
-                                    print(f'{num1} / {num2} = {num1 / num2}')
-                                    result = (f'{num1 / num2}') 
-                                else:
-                                    print("На ноль не делим!")
-                                    
-                            elif operation == "целочисленное деление":
-                                print(f'{num1} // {num2} = {num1 // num2}')
-                                result = (f'{num1 // num2}')
-        
-                            elif operation == "остаток от деления":
-                                print(f'{num1} % {num2} = {num1 % num2}')
-                                result = (f'{num1 % num2}')
+                        elif operation == "деление":
+                            if num2 != 0:
+                                print((f'{num1}').rstrip('0').rstrip('.'),(f'/ {num2}').rstrip('0').rstrip('.'),(f'= {num1 / num2}').rstrip('0').rstrip('.'))
+                                result = (f'{num1 / num2}') 
+                            else:
+                                print("На ноль не делим!")
+                                
+                        elif operation == "целочисленное деление":
+                            print((f'{num1}').rstrip('0').rstrip('.'),(f'// {num2}').rstrip('0').rstrip('.'),(f'= {num1 // num2}').rstrip('0').rstrip('.'))
+                            result = (f'{num1 // num2}')
+    
+                        elif operation == "остаток от деления":
+                            print((f'{num1}').rstrip('0').rstrip('.'),(f'% {num2}').rstrip('0').rstrip('.'),(f'= {num1 % num2}').rstrip('0').rstrip('.'))
+                            result = (f'{num1 % num2}')
                            
     elif operation == ("степень числа").lower().strip():
         result = None
         while result == None:
             num1 = input("Введи число, которое будем возводить в степень: ")
-            if num1.isdigit() == False:
+            num1_bez_tochki = num1.replace(".", "", 1)
+            if num1_bez_tochki.isdigit() == False:
                 print("Пожалуйста, я же калькулятор, напиши цифрами: ")
             else:
-                num1 = float(num1)
-                while True:                  
+                num1_part = num1.split(".")
+                if len(num1_part) == 2 and num1_part[0].isdigit() and num1_part[1].isdigit():
+                    num1 = float(num1)
+                else:
+                    num1 = float(num1)
+                result = None
+                while result == None:         
                     num2 = input("Введи число, собственно, степени:")
-                    print(f'{num1} ** {num2} = {num1 ** num2}')
-                    result = (f'{num1 ** num2}')
+                    num2_bez_tochki = num2.replace(".", "", 1)
+                    if num2_bez_tochki.isdigit() == False:
+                        print("Пожалуйста, я же калькулятор, напиши цифрами: ")
+                    else:
+                        num2_part = num2.split(".")
+                        if len(num2_part) == 2 and num2_part[0].isdigit() and num2_part[1].isdigit():
+                            num2 = float(num2)
+                        else:
+                            num2 = float(num2)
+                        print((f'{num1}').rstrip('0').rstrip('.'),(f'** {num2}').rstrip('0').rstrip('.'),(f'= {num1 ** num2}').rstrip('0').rstrip('.'))
+                        result = (f'{num1 ** num2}')
                     
     elif operation == ("революционер").lower().strip():
             print(f'{name},ты революционер на ', random.randrange(0, 100),"%.")
@@ -92,18 +105,23 @@ while True:
     elif operation == ("факториал").lower().strip():
         result = None
         while result == None:
-            num = input(f'Здесь уже всё проще,{name}. Введи число, факториал которого хочешь увидеть: ')
-            if num.isdigit() == False:
+            num = input(f'Здесь уже всё проще, {name}. Введи число, факториал которого хочешь увидеть: ')
+            num_bez_tochki = num.replace(".", "", 1)
+            if num_bez_tochki.isdigit() == False:
                 print("Не забывай, что я калькулятор и могу считать только числа: ")
             else:
+                num_part = num.split(".")
+                if len(num_part) == 2 and num_part[0].isdigit() and num[1].isdigit():
+                    num1 = float(num)
+                else:
+                    num1 = float(num)
                 factorial = 1
-                while num > 1:
-                    factorial *= num
-                    num -= 1
-                print(factorial)
+                while num1 > 1:
+                    factorial *= num1
+                    num1 -= 1
+                print((f'\nФакториал числа {num}').rstrip('0').rstrip('.'),(f' =  {factorial}').rstrip('0').rstrip('.'))
                 result = factorial
                 
     elif operation not in ("случайное число", "степень числа", "сложение", "вычитание", "умножение", "деление", "целочисленное деление", "остаток от деления"):
-        print("Таких операций я не знаю :(")
+        print("\nТаких операций я не знаю :(")
         
-    
