@@ -1,0 +1,36 @@
+print("Task 1\n")
+
+from random import randint
+list = []
+len_list = 10
+i = 0
+while i < 10:
+    list.append(randint(0, 999))
+    i = i + 1
+list.sort()
+print(list[-1])
+        
+
+print("Task 2\n")
+
+list = []
+len_list = 10
+i = 0
+while i < 10:
+    list.append(randint(1, 10))
+    i = i + 1
+list.sort()
+
+
+list2 = []
+len_list = 10
+i = 0
+while i < 10:
+    list2.append(randint(1, 10))
+    i = i + 1
+list2.sort()
+
+
+print(set(list).intersection(list2))
+
+#третье доделываю
