@@ -9,6 +9,7 @@ while i < 10:
     i = i + 1
 list.sort()
 print(list[-1])
+
         
 
 print("Task 2\n")
@@ -22,6 +23,7 @@ while i < 10:
 list.sort()
 
 
+
 list2 = []
 len_list = 10
 i = 0
@@ -33,4 +35,31 @@ list2.sort()
 
 print(set(list).intersection(list2))
 
-#третье доделываю
+
+
+print("\nTask 3")
+list = []
+i = 1
+while i <= 100:
+    list.append(i)
+    i = i + 1
+print(list)   
+
+index = 0
+list = []
+while index < 100:
+    index += 1
+    list.append(index)
+    
+index = 0
+new_list = []
+while True:
+    item = list[index]
+    if item % 5 == 0 and item % 7 == 0:
+        new_list.append(item)
+    index += 1
+    if index >= len(list):
+        break
+print(new_list)
+    
+    
