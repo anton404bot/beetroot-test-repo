@@ -1,8 +1,7 @@
-print("Task 1\n")
+print("Task 1")
 
 from random import randint
 list = []
-len_list = 10
 i = 0
 while i < 10:
     list.append(randint(0, 999))
@@ -11,7 +10,7 @@ list.sort()
 print(list[-1])
         
 
-print("Task 2\n")
+print("\nTask 2")
 
 list = []
 len_list = 10
@@ -40,7 +39,7 @@ i = 1
 while i <= 100:
     list.append(i)
     i = i + 1
-print(list)
+print(list) 
 
 index = 0
 list = []
@@ -59,4 +58,9 @@ while True:
         break
 print(new_list)
     
+    
+
+
+        
+        
     
