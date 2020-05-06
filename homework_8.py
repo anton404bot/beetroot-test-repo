@@ -38,6 +38,6 @@ while True:
     if a == "break":
         break
     b = input("Введи второе число: ")
-    if b == "break":
+    if a == "break":
         break
     check(a, b)
