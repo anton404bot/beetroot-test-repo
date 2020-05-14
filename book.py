@@ -122,7 +122,7 @@ try:
                         with open(filename, 'w') as myfile:
                             json.dump(file_content, myfile, indent=4)
                 except NameError:
-                    print("I can't find.")
+                    print("\nI can't find =(")
                 print_menu()
 
 
@@ -142,12 +142,12 @@ try:
                     print_menu()
 
             elif command == "4": 
-                print('See you!')
+                print('\nSee you!')
                 break
             else: 
-                print('See you!')
+                print('\nSee you!')
                 break
 except Exception as e:
     print('Unexpected error.')
 finally:
-    print('Bye!')
+    print('Bye!\n')
