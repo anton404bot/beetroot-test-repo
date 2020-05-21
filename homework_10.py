@@ -28,48 +28,73 @@ print("Scooby's age in human equivalent: " + f'{scooby.human_age()}.')
 print('\n\n')
 
 
-# Task 3 !В ПРОЦЕССЕ
-
-channels = ['BBC', 'Discovery', 'CNN', 'National Geographic']
+# Task 3 
 
 class TVController:
     def __init__(self, channels):
         self.channels = channels
+        self.channel_number = 1
 
-    def first_channel(self):
-        print(self.channels[0])
-
-    def last_channel(self):
-        print(self.channels[-1])
-
-    def turn_channel(self, x):
-        x = int(x)
-        x -= 1
-        print(self.channels[x])
-        #print('Такого канала не знаю')
+    def get_current_channel(self):
+        return self.channels[self.channel_number - 1]
 
     def next_channel(self):
-        pass
+        if self.channel_number >= len(self.channels):
+            self.channel_number = 1
+        else:
+            self.channel_number += 1
+        return self.get_current_channel()
 
-    def previous_channel(self):
-        pass
+    def prev_channel(self):
+        if self.channel_number == 1:
+            self.channel_number = len(self.channels)
+        else:
+            self.channel_number -= 1
+        return self.get_current_channel()
 
-    def current_channel(self):
-        pass
+    def get_channel(self, index):
+        if 0 < index <= len(self.channels):
+            self.channel_number = index
+        return self.get_current_channel()
 
-    def is_exist(self, x):
-        pass
+
+channels = ['BBC', 'Discovery', 'CNN', 'National Geographic']
 
 def print_menu():
     print()
-    print('1. ')
-    print('2. ')
-    
+    print('1. See current channel')
+    print('2. Next channel')
+    print('3. Previous channel')
+    print('4. Turn definite channel by number')
+    print('0. Turn off')
+
 controller = TVController(channels)
 
-command = input('Hi! Enter "ON", if you want to turn on the TV.').strip().lower()
+command = input('Hi! Enter "ON", if you want to turn on the TV. ').strip().lower()
 if command == 'on': 
-    controller.first_channel()
-    controller.last_channel()
-    controller.turn_channel()
-    controller.next_channel()
+    print('\nNow ' + controller.get_current_channel() + ' is playing.')
+    print_menu()
+    while True:
+        command = input('Choose an option from the menu: ')
+        print_menu()
+        if command == '0':
+            break
+        elif command == '1':
+            print('\nNow ' + controller.get_current_channel() + ' is playing.')
+        elif command == '2':
+            print('\nNow ' + controller.next_channel() + ' is playing.')
+        elif command == '3':
+            print('\nNow ' + controller.prev_channel() + ' is playing.')
+        elif command == '4':
+            while True:
+                try:
+                    index = int(input('\nEnter the number of the channel you would like to watch: '))
+                    if index > len(channels):
+                        print("\nI don't have so many channels( ")
+                    elif index <= len(channels):
+                        print(controller.get_channel(index))
+                        break
+                except ValueError:
+                    print('\nPlease, don\'t do it.')
+        else:
+            print("I don't know what to do( ")
