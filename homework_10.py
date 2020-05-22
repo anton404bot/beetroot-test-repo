@@ -98,3 +98,4 @@ if command == 'on':
                     print('\nPlease, don\'t do it.')
         else:
             print("I don't know what to do( ")
+else: print('Bye!')
