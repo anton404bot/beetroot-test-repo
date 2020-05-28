@@ -22,10 +22,9 @@ def check(a, b):
     try:
         a = float(a)
         b = float(b)
+        a**2/b
     except ValueError:
         return print("Вводить можно только числа!")
-    try:
-        a**2/b
     except ZeroDivisionError:
         return print("Делить на ноль не лучшая затея!")
     else:
@@ -38,10 +37,6 @@ while True:
     if a == "break":
         break
     b = input("Введи второе число: ")
-<<<<<<< HEAD
-    if a == "break":
-=======
     if b == "break":
->>>>>>> 1c97858c09df9bf70bcc4fd282cda2423197bff9
         break
     check(a, b)
