@@ -10,9 +10,6 @@ class Ticket:
         self.seat = seat
         self.price = price
 
-    def __eq__(self, other):
-        return self.event == other.event and self.circle == other.circle and self.raw == other.raw and self.seat == other.seat and self.price == other.price
-
     def __str__(self):
         return f'{self.event} ({self.datetime}) circle: {self.circle}, {self.raw} raw, {self.seat} seat, {self.price} UAH.'
 
