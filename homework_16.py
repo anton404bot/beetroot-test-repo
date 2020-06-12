@@ -81,9 +81,20 @@ Also, add logic for retrieving elements using square brackets syntax.
 '''
 
 print('\nTASK3')
+    
+class Iterable:
+    def __init__(self, iterable):
+        self.__iter = iterable
+    
+    def __iter__(self):
+        return iter(self.__iter)
 
-for i in [random.randint(1, 99) for i in range(random.randint(9, 11))]:
-    if i % 4 == 0:
-        print(i)
-    else: continue
+    def __getitem__(self, index):
+        return self.__iter[index]
+
+simple = Iterable([x for x in range(random.randint(9, 11))])
+
+for item in simple:
+    print(item)
+        
     
