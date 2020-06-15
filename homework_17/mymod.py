@@ -10,13 +10,11 @@ def count_lines(path):
 def count_chars(path):
     f = open(path, 'rb')
     return len(f.read())
-    '''try:
-        for line in open(path, 'r'):
-            chars += 
-            return f'\nThis file has {chars} characters.\n'
+    
+def test(path):
+    f = open(path, 'rb')
+    try:
+        return f'\nThis file consists of {len(f.read())} characters \nand has {sum(1 for line in open(path))} lines.\n'
     except UnicodeDecodeError:
-        print('I\'m ready only for text files (')'''
-
-def test(name):
-    'both'
-    pass
+        print('I\'m ready only for text files (') 
+        

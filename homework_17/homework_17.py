@@ -28,12 +28,13 @@ print('\nTask 3')
 
 import glob
 import os
-from mymod import count_lines, count_chars
+from mymod import count_lines, count_chars, test
 
 def print_menu():
     print()
     print('1. Count lines')
     print('2. Count chars')
+    print('3. Test (both)')
     print('0. Exit')
     print()
 
@@ -64,6 +65,8 @@ while True:
                 print(count_lines(filepath))
             elif command == '2':
                 print(count_chars(filepath))
+            elif command == '3':
+                print(test(filepath))
             elif command == '0':
                 print('Bye!')
                 break
@@ -76,6 +79,8 @@ while True:
                 print(count_lines(filepath))
             elif command == '2':
                 print(count_chars(filepath))
+            elif command == '3':
+                print(test(filepath))
             elif command == '0':
                 print('Bye!')
                 break
