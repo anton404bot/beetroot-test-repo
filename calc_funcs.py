@@ -1,14 +1,14 @@
 stripzero = lambda x: (x).rstrip('0').rstrip('.')
 striptuple = lambda x: (x).replace(",", "").replace("(", "").replace(")", "").replace("'", "")
 
-def charposition(string, char):
+def charposition(string: str, char: str) -> list:
     pos = []
     for n in range(len(string)):
         if string[n] == char:
             pos.append(n)
     return pos
 
-def auto(x): 
+def auto(x: str) -> str: 
     symbols = ("+", "*", "/", "%")
     while x[0] in symbols:
         x = x[1:]
@@ -65,12 +65,8 @@ def auto(x):
             part = x.split("/")
             part[0] = float(part[0])
             part[1] = float(part[1])
-            return (stripzero(f'{part[0]}'),stripzero(f'/ {part[1]}'),stripzero(f'= {part[0] / part[1]}'))   
-    elif x.count("%") == 1:
-        part = x.split("%")
-        part[0] = float(part[0])
-        part[1] = float(part[1])
-        return (stripzero(f'{part[0]}'),stripzero(f'% {part[1]}'),stripzero(f'= {part[0] % part[1]}')) 
+            return (stripzero(f'{part[0]}'),stripzero(f'/ {part[1]}'),stripzero(f'= {part[0] / part[1]}')) 
+
     elif x.count("-") <= 2 and x.count("%") == 1:
         part = x.split("%")
         part[0] = float(part[0])
