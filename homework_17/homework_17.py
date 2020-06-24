@@ -6,8 +6,11 @@ make a function in one of them;
 then import this function in the other module 
 and use that in your script of choice.'''
 
-from for_import import get_largest as gl, convert_list 
+
 import random
+import sys
+from for_import import get_largest as gl, convert_list 
+
 # get_largest returns the largest possible number from given nums
 # convert_list converts list of generated numbers to one integer number
 
@@ -23,7 +26,13 @@ Is it possible to change it from within Python?
 If so, does it affect where Python looks for module files? 
 Run some interactive tests to find it out.'''
 
+sys.path.insert(0, '/Users/orthodox/Desktop/beetroot-test-repo/homework_17/mod')
 
+from mod import hello
+
+print(hello())
+
+# wildcard
 print('\nTask 3')
 
 import glob
@@ -42,7 +51,8 @@ while True:
     command = input('Write 1 to find file or 0 to exit: ')
     if command == '1':
         search = input('Write filename: ')
-        list_of_founds = (glob.glob(f'*{search}*'))
+        list_of_founds = (glob.glob(f'**//*{search}*', recursive=True))
+        #list_of_founds = glob.glob(os.path.join('**', f'*{search}*'), recursive=True)
         if len(list_of_founds) > 1:
             print('You have to choose one from the list below: ')
             index = 0
@@ -89,7 +99,6 @@ while True:
             pass
     elif command == '0':
         break    
-
 
 
 
