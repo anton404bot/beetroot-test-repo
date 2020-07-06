@@ -39,8 +39,9 @@ def question2(n: int):
 		n **= 3
         oper_count += 1
 	return oper_count
-
 '''
+
+
 @time_it
 def question3(first_list: List[int], second_list: List[int]):
    temp: List[int] = first_list[:]
